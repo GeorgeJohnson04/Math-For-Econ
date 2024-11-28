@@ -1,102 +1,75 @@
-% Define constants based on new data
-GDP_current = 27.36; % Current GDP in trillion USD (2023)
-wealth_top10 = 60;   % Percentage of wealth held by top 10% families
+%% Parameters
+% Economic Data (2023)
+GDP_current = 27.36; % Current GDP in trillion USD
+population = 0.3349; % Population in billion (334.9 million)
+GDP_pc_current = 81.695; % Current GDP per capita in thousand USD/person
+wealth_top10_current = 60; % Wealth held by top 10% (in %)
 
-% Updated tax and tariff parameters
-avg_tax_rate = 0.22;  % Average effective tax rate (22%)
-initial_tariff_rate = 0.02; % Initial tariff rate (2%)
+% Government Spending and Economic Shares (2023)
+beta_C = 0.6817; % Consumption as share of GDP (68.17%)
+beta_I = 0.207;  % Investment as share of GDP (20.7%)
+beta_G = 0.207;  % Government spending as share of GDP (20.7%)
 
-% Updated elasticity parameters for GDP equation (based on FY2023 data)
-beta_C = 0.6817; % Consumption elasticity to tax/tariff change
-beta_I = 0.207;  % Investment elasticity to tax/tariff change
-beta_G = 0.227;  % Government spending elasticity to tax/tariff change
+% Policy Changes
+tax_rate = 0.22; % Average income tax rate (22%)
+tariff_increase = 0.75; % Tariff increase from 25% to 100%
 
-% Elasticity parameters for wealth distribution equation
-alpha_Y = 0.4; % Income distribution elasticity to tax/tariff change
-alpha_RR = 0.1; % Redistribution elasticity to tax/tariff change
+% Elasticity Parameters
+GDP_elasticity = beta_C + beta_I + beta_G;
+wealth_elasticity = 0.4 + 0.1; 
 
-%% Simulation 1: Removal of Income Tax (Decrease Tax Rate to Zero)
-% Create a range for Delta T (change in tax from 22% to 0%)
-Delta_T = linspace(avg_tax_rate, 0, 100);  % 100 steps from 22% to 0%
+%% Calculations
 
-% Simulate the effect on GDP (Delta GDP) for each Delta T
-Delta_GDP_tax = (beta_C + beta_I + beta_G) .* Delta_T .* GDP_current;
+% Change in GDP (Delta GDP)
+Delta_GDP = GDP_elasticity * (tax_rate + tariff_increase) * GDP_current;
+GDP_new = GDP_current + Delta_GDP;
 
-% Simulate the effect on Wealth Distribution (Delta G) for each Delta T
-Delta_G_tax = (alpha_Y + alpha_RR) .* Delta_T .* wealth_top10;
+% GDP Per Capita (New GDP per capita)
+GDP_pc_new = GDP_new / population;
 
-%% Simulation 2: Increase in Tariffs (Tariff Increase from 2% to 100%)
-% Create a range for Delta Tariff (change in tariff from 2% to 100%)
-Delta_Tariff = linspace(initial_tariff_rate, 1.0, 100);  % 100 steps from 2% to 100%
+% Change in Wealth Disparity (Delta G)
+Delta_G = wealth_elasticity * (tax_rate + tariff_increase) * wealth_top10_current;
+wealth_top10_new = wealth_top10_current + Delta_G;
 
-% Simulate the effect on GDP (Delta GDP) for each change in tariff
-Delta_GDP_tariff = (beta_C + beta_I + beta_G) .* Delta_Tariff .* GDP_current;
+%% Display Results
+disp('--- Results ---');
+fprintf('Change in GDP: %.2f trillion USD\n', Delta_GDP);
+fprintf('New GDP: %.2f trillion USD\n', GDP_new);
+fprintf('New GDP Per Capita: %.2f thousand USD/person\n', GDP_pc_new);
+fprintf('Change in Wealth Disparity: %.2f%%\n', Delta_G);
+fprintf('New Wealth Disparity: %.2f%% (Wealth held by top 10%%)\n', wealth_top10_new);
 
-% Simulate the effect on Wealth Distribution (Delta G) for each change in tariff
-Delta_G_tariff = (alpha_Y + alpha_RR) .* Delta_Tariff .* wealth_top10;
+%% Visualization
 
-%% Plot Figure 1: Separate Effects
+% Change in GDP, GDP Per Capita, and Wealth Disparity over policy shifts
+policy_shift = linspace(0, tax_rate + tariff_increase, 100); 
+Delta_GDP_values = GDP_elasticity * policy_shift * GDP_current;
+GDP_pc_values = (GDP_current + Delta_GDP_values) / population; 
+Delta_G_values = wealth_elasticity * policy_shift * wealth_top10_current;
+
+% Plot results
 figure;
 
-% Subplot 1: Effect on GDP (Removal of Income Tax)
-subplot(2, 2, 1);
-plot(Delta_T, Delta_GDP_tax, 'b', 'LineWidth', 2);
-title('Effect on GDP: Removal of Income Tax');
-xlabel('Change in Tax Rate (\Delta T)');
-ylabel('Change in GDP (\Delta GDP in Trillion USD)');
+% Plot Change in GDP
+subplot(3, 1, 1);
+plot(policy_shift, Delta_GDP_values, 'b', 'LineWidth', 2);
+title('Change in GDP with Policy Shifts');
+xlabel('Policy Shift (\Delta T + \Delta Tariff)', 'Interpreter', 'tex');
+ylabel('Change in GDP (\Delta GDP in trillion USD)', 'Interpreter', 'tex');
 grid on;
 
-% Subplot 2: Effect on Wealth Distribution (Removal of Income Tax)
-subplot(2, 2, 2);
-plot(Delta_T, Delta_G_tax, 'r', 'LineWidth', 2);
-title('Effect on Wealth Distribution: Removal of Income Tax');
-xlabel('Change in Tax Rate (\Delta T)');
-ylabel('Change in Wealth Distribution (% of Wealth)');
+% Plot Change in GDP Per Capita
+subplot(3, 1, 2);
+plot(policy_shift, GDP_pc_values, 'g', 'LineWidth', 2);
+title('Change in GDP Per Capita with Policy Shifts');
+xlabel('Policy Shift (\Delta T + \Delta Tariff)', 'Interpreter', 'tex');
+ylabel('GDP Per Capita (thousand USD/person)', 'Interpreter', 'tex'); 
 grid on;
 
-% Subplot 3: Effect on GDP (Increase in Tariffs)
-subplot(2, 2, 3);
-plot(Delta_Tariff, Delta_GDP_tariff, 'g', 'LineWidth', 2);
-title('Effect on GDP: Increase in Tariffs');
-xlabel('Change in Tariff Rate (\Delta Tariff)');
-ylabel('Change in GDP (\Delta GDP in Trillion USD)');
-grid on;
-
-% Subplot 4: Effect on Wealth Distribution (Increase in Tariffs)
-subplot(2, 2, 4);
-plot(Delta_Tariff, Delta_G_tariff, 'm', 'LineWidth', 2);
-title('Effect on Wealth Distribution: Increase in Tariffs');
-xlabel('Change in Tariff Rate (\Delta Tariff)');
-ylabel('Change in Wealth Distribution (% of Wealth)');
-grid on;
-
-%% Simulation 3: Combined Tax and Tariff Changes
-% Assume that tax rate and tariff rate change simultaneously
-% (i.e., index i represents a simultaneous change in both)
-Delta_T_combined = Delta_T; % Tax change (22% to 0%)
-Delta_Tariff_combined = linspace(initial_tariff_rate, 1.0, 100); % Tariff change (2% to 100%)
-
-% Simulate combined effect on GDP
-Delta_GDP_combined = (beta_C + beta_I + beta_G) .* (Delta_T_combined + Delta_Tariff_combined) .* GDP_current;
-
-% Simulate combined effect on Wealth Distribution
-Delta_G_combined = (alpha_Y + alpha_RR) .* (Delta_T_combined + Delta_Tariff_combined) .* wealth_top10;
-
-%% Plot Figure 2: Combined Effects
-figure;
-
-% Subplot 1: Combined Effect on GDP
-subplot(1, 2, 1);
-plot(Delta_T_combined + Delta_Tariff_combined, Delta_GDP_combined, 'b', 'LineWidth', 2);
-title('Combined Effect on GDP');
-xlabel('Simultaneous Change in Tax and Tariff Rates (\Delta T + \Delta Tariff)');
-ylabel('Change in GDP (\Delta GDP in Trillion USD)');
-grid on;
-
-% Subplot 2: Combined Effect on Wealth Distribution
-subplot(1, 2, 2);
-plot(Delta_T_combined + Delta_Tariff_combined, Delta_G_combined, 'r', 'LineWidth', 2);
-title('Combined Effect on Wealth Distribution');
-xlabel('Simultaneous Change in Tax and Tariff Rates (\Delta T + \Delta Tariff)');
-ylabel('Change in Wealth Distribution (% of Wealth)');
+% Plot Change in Wealth Disparity
+subplot(3, 1, 3);
+plot(policy_shift, Delta_G_values, 'r', 'LineWidth', 2);
+title('Change in Wealth Disparity with Policy Shifts');
+xlabel('Policy Shift (\Delta T + \Delta Tariff)', 'Interpreter', 'tex');
+ylabel('Change in Wealth Disparity (\Delta G in %)', 'Interpreter', 'tex');
 grid on;
