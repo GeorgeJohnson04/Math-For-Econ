@@ -1,0 +1,221 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[margin=1.5in]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb} 
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{subfig}
+\usepackage{kpfonts}    % for nice fonts
+\usepackage{microtype} 
+\usepackage{booktabs}   % for nice tables
+\usepackage{bm}         % for bold math
+\usepackage{listings}   % for inserting code
+\usepackage{verbatim}   % useful for program listings
+\usepackage{color}  
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{indentfirst}
+
+\doublespacing
+\setlength {\marginparwidth }{2cm}
+\begin{document}
+
+%+Title
+\title{\textbf{Donald Trump: The Removal of Income Tax}}
+\author{George Johnson \& Aidan Brogan}
+\date{December 2, 2024}
+\maketitle
+%-Title
+%+Abstract
+
+\textbf{Abstract:} This paper explores the potential economic impact of Donald Trump's proposed elimination of income tax on the United States (U.S.) economy. Building upon thoughts from experts and previous studies, we adapt and expand these frameworks to model and analyze the full scope of this tax policy. Our simulation examines the effects of the economic indicators of GDP and wealth distribution. Based on the outcomes, we discuss the potential future policy measures. These recommendations aim to facilitate a smoother implementation of the proposed plan, should it secure legislative approval.
+%-Abstract
+
+\newpage
+\section{Introduction}
+
+ \indent Donald Trump's victory in the 2024 U.S. presidential election has brought attention to his proposal to eliminate federal income tax. Such a plan would have significant effects on the U.S. economy: experts argue that this proposal is fundamentally and mathematically unfeasible (Zahn, 2024). Federal income tax accounts for a substantial portion of government revenue. It also funds critical programs such as Social Security, Medicare, and national defense. The removal of this revenue stream could drastically alter the fiscal landscape, leaving significant gaps in funding for essential services.
+ 
+\subsection{Motivation}
+
+ \indent This shift would also affect economic functions, potentially increasing income inequality and altering market behavior. There however are strategies policymakers could explore to mitigate risks. Understanding the economic implications of this proposal is essential as lawmakers consider its feasibility. Balancing innovation in tax policy with financial sustainability will determine the success or failure of such a trans-formative plan.
+
+ 
+\section{Background}
+
+\indent (Vermeer, 2022) goes into detail on the impact of individual income tax and its changes on Economic growth, making findings related to GDP, upward job mobility, and private investment. They find that higher income tax rates lead to lower GDP and private investment as they have a negative relationship. With higher rates also making it harder for employed peoples to find a better paying job within a year.     
+
+\section{Data and Equations}
+
+\indent In order to calculate the effects of the removal of income tax and increase in tariffs at his lowest planned of 60\%, we will modify the GDP equation to find the new GDP per capita and the wealth disparity equation.
+
+\subsection{Equations}
+
+\subsection*{Change in GDP (\( \Delta \text{GDP} \))}
+
+\[
+\Delta \text{GDP} = (\beta_C + \beta_I + \beta_G) \cdot (\Delta T + \Delta \text{Tariff}) \cdot \text{GDP}_{\text{current}}
+\]
+
+\subsection*{New GDP (\( \text{GDP}_{\text{new}} \))}
+
+\[
+\text{GDP}_{\text{new}} = \text{GDP}_{\text{current}} + \Delta \text{GDP}
+\]
+
+\subsection*{GDP Per Capita (\( \text{GDP}_{\text{pc,new}} \))}
+
+\[
+\text{GDP}_{\text{pc,new}} = \frac{\text{GDP}_{\text{new}}}{P}
+\]
+
+Substituting \( \text{GDP}_{\text{new}} \):
+\[
+\text{GDP}_{\text{pc,new}} = \frac{\text{GDP}_{\text{current}} + (\beta_C + \beta_I + \beta_G) \cdot (\Delta T + \Delta \text{Tariff}) \cdot \text{GDP}_{\text{current}}}{P}
+\]
+
+\subsection*{Change in Wealth Disparity (\( \Delta G \))}
+
+\[
+\Delta G = (\alpha_Y + \alpha_RR) \cdot (\Delta T + \Delta \text{Tariff}) \cdot G_{\text{current}}
+\]
+
+\subsection*{New Wealth Disparity (\( G_{\text{new}} \))}
+
+\[
+G_{\text{new}} = G_{\text{current}} + \Delta G
+\]
+
+\section{Results}
+
+The data gathered for this study had to utilize multiple sources. This is because we do not have access to the exact GDP spending, however we were able to utilize other sites that have reported on this data to gather a rough estimate. In order to be accurate since the year 2024 has not yet concluded we decided to implement data from 2023 since it is the most recent completed fiscal year. By doing this we were better able to see the total impact of the policy actions Donald Trump Plans to implement.
+
+\subsection{Parameters}
+
+\subsection*{Economic Data (2023)}
+
+\begin{itemize}
+    \item Current GDP: \( \text{GDP}_{\text{current}} = 27.36 \, \text{trillion USD} \)
+    \item Population: 334.9 million
+    \item Percentage of wealth held by the top 10\%: \( G_{\text{current}} = 60\% \)
+    \item GDP Per Capita: \( \text{GDP}_{\text{pc,current}} = 81,695 \, \text{USD/person} \)
+\end{itemize}
+
+\subsection*{Shares of GDP (2023)}
+
+\begin{itemize}
+    \item Government spending as a share of GDP: \( \beta_G = 0.207 \, \text{(20.7\%)} \)
+    \item Personal consumption expenditures as a share of GDP: \( \beta_C = 0.6817 \, \text{(68.17\%)} \)
+    \item Investment as a share of GDP: \( \beta_I = 0.207 \, \text{(20.7\%)} \)
+\end{itemize}
+
+\subsection*{Policy Changes}
+
+\begin{itemize}
+    \item Average income tax rate: \( \Delta T = 0.22 \, \text{(22\%)} \)
+    \item Tariff increase: \( \Delta \text{Tariff} = 0.75 \, \text{(from 25\% to 60\%)} \)
+\end{itemize}
+
+\subsection*{Elasticity Parameters}
+
+\begin{itemize}
+    \item GDP elasticity with respect to taxes and tariffs:
+    \[
+    \beta_C + \beta_I + \beta_G = 0.6817 + 0.207 + 0.207 = 1.0957
+    \]
+    \item Wealth disparity elasticity with respect to taxes and tariffs:
+    \[
+    \alpha_Y + \alpha_RR = 0.4 + 0.1 = 0.5
+    \]
+\end{itemize}
+
+\subsection{Calculations}
+
+\subsection*{Change in GDP (\( \Delta \text{GDP} \))}
+
+\[
+\Delta \text{GDP} = (0.6817 + 0.207 + 0.207) \cdot (0.22 + 0.75) \cdot 27.36
+\]
+\[
+\Delta \text{GDP} = 1.0957 \cdot 0.97 \cdot 27.36 = 29.12 \, \text{trillion USD}
+\]
+
+\subsection*{New GDP (\( \text{GDP}_{\text{new}} \))}
+
+\[
+\text{GDP}_{\text{new}} = 27.36 + 29.12 = 56.48 \, \text{trillion USD}
+\]
+\begin{figure} [ht]
+    \centering
+    \includegraphics[width=1.1\linewidth]{Change in GDP.png}
+    \caption{New GDP}
+    \label{fig:1}
+\end{figure}
+
+\indent As the tax and tariff rate increase, the total GDP grows substantially. This is modeled by the elasticity of the GDP with respect to the tax and tariff policy. The increase in GDP suggests that higher tariffs and tax revenues could boost economic activity or government spending in this model.
+
+\subsection*{New GDP Per Capita (\( \text{GDP}_{\text{pc,new}} \))}
+\[
+\text{GDP}_{\text{pc,new}} = \frac{\text{GDP}_{\text{new}}}{P}
+\]
+\[
+\text{GDP}_{\text{pc,new}} = \frac{56.48}{0.3349} = 168.64 \, \text{thousand USD/person}
+\]
+
+\begin{figure} [ht]
+    \centering
+    \includegraphics[width=1.1\linewidth]{Change in GDP Per Capita.png}
+    \caption{Change in GDP Per Capita}
+    \label{fig:2}
+\end{figure}
+
+\indent There is a steady increase in GDP per capita. The initial GDP Per capita as of 2023 was \$81,695 and increased to approximately \$128,720 as the policy reached maximum output. This assumes that the population has remained constant and that economic gains are distributed proportionately. 
+
+\subsection*{Change in Wealth Disparity (\( \Delta G \))}
+\[
+\Delta G = (0.4 + 0.1) \cdot (0.22 + 0.75) \cdot 60
+\]
+\[
+\Delta G = 0.5 \cdot 0.97 \cdot 60 = 29.1\%
+\]
+
+\subsection*{New Wealth Disparity (\( G_{\text{new}} \))}
+
+\[
+G_{\text{new}} = G_{\text{current}} + \Delta G
+\]
+\[
+G_{\text{new}} = 60 + 29.1 = 89.1\% \, \text{(Wealth held by top 10\% increases to 89.1\%)}
+\]
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.1\linewidth]{Change in Wealth Disparity.png}
+    \caption{Change in Wealth Disparity}
+    \label{fig:3}
+\end{figure}
+
+\indent The graph indicates that wealth disparity increases. The percentage of wealth held by the top 10\% of earners starts at 60\% and grows to 89\%. This outcome assumes that higher taxes and tariffs disproportionately impact lower-income groups and that wealthier groups benefit more from the economic gains.
+
+\section{Conclusion}
+
+\indent Confounders in our research such as us not having access to specific metrics should be acknowledged to determine if this is a realistic result. Assuming our data is accurate we ccan state that the models do suggest that high taxes and tariffs could drive significant GDP and GDP per capita growth. The correlated increase in wealth disparity is very concerning however since it implies the growth in GDP may not be evenly distributed. Overall one must analyze on their own if the growth in GDP and GDP per capita is worth the trade-off of a growth in inequality and possibly a higher poverty rate. Since our data isn't completely sound we can't provide 100\% accurate policy solutions, however assuming it is we recommend possible acts that will assure for equal distribution of the GDP growth to ease the spike in wealth disparity. For future research we recommend recreating our study with the more accurate data provided by the government.
+
+
+\newpage
+\bibliographystyle{apalike}
+\bibliography{Citations}
+\citep{Max_Zahn}
+\citep{Fiscal}
+\citep{BEA}
+\citep{CEIC}
+\citep{IRS}
+\citep{TaxFound}
+\citep{Macro}
+\citep{WorldM}
+\end{document}
