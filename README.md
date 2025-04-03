@@ -1,1 +1,1 @@
-Matlab simulation for Donald Trumps Income Tax plan and Shift to Tariffs and its effect on GDP, GDP Per Capita, and Wealth Distribution. I handled the matlab code  and data section of the paper while he worked on the introduction and conclusion. (Still a work in progress research assignment)
+Matlab simulation for Donald Trumps Income Tax plan and Shift to Tariffs and its effect on GDP, GDP Per Capita, and Wealth Distribution. I handled the matlab code  and data section of the paper while he worked on the introduction and conclusion. 
