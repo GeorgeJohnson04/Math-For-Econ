@@ -29,7 +29,7 @@ The simulation uses elasticity parameters to estimate the impact of policy shift
   - Tax Rate Increase: 22%
   - Tariff Increase: 75%
  
-  ### **1. Change in GDP with Policy Shifts**  
+### **1. Change in GDP with Policy Shifts**  
 - The graph shows a **linear increase** in GDP as the policy shift parameter (sum of tax rate increase and tariff increase) rises.  
 - At the **average income tax rate (0.22)**, there is a noticeable but moderate rise in GDP.  
 - At the **full tariff increase (0.75)**, GDP has increased significantly.  
