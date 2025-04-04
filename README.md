@@ -91,6 +91,7 @@ The simulation uses elasticity parameters to estimate the impact of policy shift
 
 ## 📌 Class
 Mathematics for Economics
+- Note I remapped the graphs after project sumbission to demonstrate further development of MATLAB skill
 ---
 
 *Created for educational simulation and economic policy analysis.*
