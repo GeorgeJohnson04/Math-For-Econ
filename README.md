@@ -76,14 +76,14 @@ The simulation uses elasticity parameters to estimate the impact of policy shift
 
 ## 📁 Files
 
-- `policy_model.m`: Main MATLAB script
+- `Donald_Trump_Simulation.m`: Main MATLAB script
 - `GDP_change.png`: Plot of GDP change with policy shift
 - `GDP_per_capita.png`: Plot of GDP per capita with policy shift
 - `Wealth_disparity.png`: Plot of change in wealth concentration
 
 ## ▶️ How to Run
 
-1. Open `policy_model.m` in MATLAB.
+1. Open `Donald_Trump_Simulation.m` in MATLAB.
 2. Run the script to generate and save plots in PNG format.
 3. View graphs in the project folder.
 
