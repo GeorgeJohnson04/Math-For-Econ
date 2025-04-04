@@ -56,7 +56,7 @@ The simulation uses elasticity parameters to estimate the impact of policy shift
 - The **top 10% wealth share grows proportionally** with GDP, suggesting that economic expansion benefits the wealthiest portion of the population more significantly.  
 - Even at the lowest policy shift level, the wealth concentration of the top 10% **increases**, which indicates that policies may exacerbate wealth inequality rather than redistribute income evenly.  
 
-### **Overall Interpretation**  
+### **4. Overall Interpretation**  
 - The model predicts **positive GDP and GDP per capita growth** with increasing taxation and tariffs.  
 - However, **wealth disparity also grows**, suggesting that these policy changes disproportionately benefit the wealthiest individuals rather than reducing inequality.  
 - This aligns with **elasticity assumptions** that capital accumulation and consumption drive wealth concentration more than redistribution mechanisms in the economy.  
