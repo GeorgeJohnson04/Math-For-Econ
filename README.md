@@ -28,6 +28,27 @@ The simulation uses elasticity parameters to estimate the impact of policy shift
 - **Policy Shift Inputs**:
   - Tax Rate Increase: 22%
   - Tariff Increase: 75%
+ 
+  ### **1. Change in GDP with Policy Shifts**  
+- The graph shows a **linear increase** in GDP as the policy shift parameter (sum of tax rate increase and tariff increase) rises.  
+- At the **average income tax rate (0.22)**, there is a noticeable but moderate rise in GDP.  
+- At the **full tariff increase (0.75)**, GDP has increased significantly.  
+- This suggests that the modeled elasticity parameters predict that a combination of higher taxes and tariffs results in overall GDP growth.  
+
+### **2. Change in GDP Per Capita with Policy Shifts**  
+- The **dashed-line plot** shows that GDP per capita also increases **linearly** with the policy shift.  
+- This indicates that **economic growth is distributed across the population**, maintaining a proportional rise in GDP per person.  
+- The same marked points (0.22 and 0.75) show how much per capita GDP increases as policy changes take effect.  
+
+### **3. Change in Wealth Disparity with Policy Shifts**  
+- This graph shows a **steady increase in wealth disparity** as policy shifts occur.  
+- The **top 10% wealth share grows proportionally** with GDP, suggesting that economic expansion benefits the wealthiest portion of the population more significantly.  
+- Even at the lowest policy shift level, the wealth concentration of the top 10% **increases**, which indicates that policies may exacerbate wealth inequality rather than redistribute income evenly.  
+
+### **Overall Interpretation**  
+- The model predicts **positive GDP and GDP per capita growth** with increasing taxation and tariffs.  
+- However, **wealth disparity also grows**, suggesting that these policy changes disproportionately benefit the wealthiest individuals rather than reducing inequality.  
+- This aligns with **elasticity assumptions** that capital accumulation and consumption drive wealth concentration more than redistribution mechanisms in the economy.  
 
 ## 📁 Files
 
