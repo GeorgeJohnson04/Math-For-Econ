@@ -80,6 +80,8 @@ The simulation uses elasticity parameters to estimate the impact of policy shift
 - `GDP_change.png`: Plot of GDP change with policy shift
 - `GDP_per_capita.png`: Plot of GDP per capita with policy shift
 - `Wealth_disparity.png`: Plot of change in wealth concentration
+- Read Full paper here `Mathematics_for_Economics_Project_George_and_Aidan.pdf`
+- Latex code available in the Latex Repository section on my github profile
 
 ## ▶️ How to Run
 
@@ -88,9 +90,7 @@ The simulation uses elasticity parameters to estimate the impact of policy shift
 3. View graphs in the project folder.
 
 ## 📌 Class
-
 Mathematics for Economics
-
 ---
 
 *Created for educational simulation and economic policy analysis.*
